@@ -1,9 +1,8 @@
 import Navbar from "./../components/Navbar";
 import PageTracker from "./../components/PageTracker";
+import { ReactNode } from "react";
 
-
-export default function FrontendLayout({ children }) {
-
+export default function FrontendLayout({ children }: { children: ReactNode }) {
     return (
         <div>
             <PageTracker />

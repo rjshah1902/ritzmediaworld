@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
+import { ReactNode } from "react";
 
-export default function FrontendLayout({ children }) {
+export default function FrontendLayout({ children }: { children: ReactNode }) {
   return (
     <div>
       <Navbar />

@@ -4,7 +4,8 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { postAPI } from "../helper/api_call";
 
-const pageMap = {
+const pageMap: Record<string, string> = {
+    "/": "Home",
     "/home": "Home",
     "/about-us": "About Us",
     "/blogs": "Blogs",
@@ -13,11 +14,10 @@ const pageMap = {
 
 export default function usePageTracker() {
     const pathname = usePathname();
-    const prevPath = useRef("");
+    const prevPath = useRef<string>("");
 
     useEffect(() => {
         const user_id = localStorage.getItem("user_id");
-
         if (!user_id) return;
 
         const currentPage = pageMap[pathname];

@@ -12,10 +12,10 @@ export default function Home() {
                 <Header />
 
                 <main className="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <Card title="Users" value="1,240" />
-                    <Card title="Revenue" value="$8,540" />
-                    <Card title="Orders" value="320" />
-                    <Card title="Growth" value="+12%" />
+                    <Card />
+                    <Card />
+                    <Card />
+                    <Card />
                 </main>
             </div>
         </div>

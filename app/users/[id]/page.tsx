@@ -3,20 +3,30 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { getAPI } from "./../../helper/api_call";
 
+type User = {
+    id: number;
+    ip_address: string;
+    brower_type: string;
+};
+
+type Navigation = {
+    current_page: string;
+    next_page: string;
+    created_at: string;
+};
+
 export default function UserDetails() {
     const { id } = useParams();
-    const [user, setUser] = useState(null);
-    const [navigation, setNavigation] = useState([]);
+    const [user, setUser] = useState<User | null>(null);
+    const [navigation, setNavigation] = useState<Navigation[]>([]);
 
     useEffect(() => {
         if (!id) return;
 
-        // Get user details
         getAPI(`/users/details?user_id=${id}`).then((res) => {
             setUser(res.data);
         });
 
-        // Get navigation history
         getAPI(`/navigation?user_id=${id}`).then((res) => {
             setNavigation(res.data);
         });

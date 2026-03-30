@@ -8,7 +8,7 @@ const API = axios.create({
 });
 
 // GET request
-export const getAPI = async (url) => {
+export const getAPI = async (url: string) => {
     try {
         const response = await API.get(url);
         return response.data;
@@ -19,7 +19,7 @@ export const getAPI = async (url) => {
 };
 
 // POST request
-export const postAPI = async (url, data) => {
+export const postAPI = async (url: string, data: any) => {
     try {
         const response = await API.post(url, data);
         return response.data;

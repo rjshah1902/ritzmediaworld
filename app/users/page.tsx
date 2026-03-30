@@ -3,8 +3,16 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { getAPI } from "./../helper/api_call";
 
+// ✅ Define User type
+type User = {
+    id: number;
+    ip_address: string;
+    brower_type: string;
+};
+
 export default function UsersPage() {
-    const [users, setUsers] = useState([]);
+    // ✅ Add type here
+    const [users, setUsers] = useState<User[]>([]);
 
     useEffect(() => {
         getAPI("/users").then((res) => {

@@ -6,12 +6,20 @@ import { getAPI } from "../helper/api_call";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 
+type PageVisit = {
+    page_name: string;
+    page_count: string;
+};
+
+
 export default function VisitsPieChart() {
-    const [data, setData] = useState([]);
+    const [data, setData] = useState<
+        { name: string; visits: number; value: number }[]
+    >([]);
 
     useEffect(() => {
         getAPI("/page-visits").then((res) => {
-            const formatted = res.data.map((item) => ({
+            const formatted = res.data.map((item: PageVisit) => ({
                 name: item.page_name,
                 visits: Number(item.page_count),
                 value: Number(item.page_count),
@@ -54,6 +62,5 @@ export default function VisitsPieChart() {
                 </main>
             </div>
         </div>
-
     );
 }
