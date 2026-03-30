@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-    baseURL: "https://honeydew-armadillo-704093.hostingersite.com/api/page-visits/api",
+    baseURL: "https://honeydew-armadillo-704093.hostingersite.com/api",
     headers: {
         "Content-Type": "application/json",
     },
